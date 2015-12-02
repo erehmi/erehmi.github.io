@@ -11,7 +11,7 @@ title:            WhatsAndroid
 tagline:          'Hello, Android!'
 description:      'Hello, Android!'
 url:              https://erehmi.github.io/
-baseurl:          /
+baseurl:          https://erehmi.github.io/
 
 author:
   name:           'erehmi'
