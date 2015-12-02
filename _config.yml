@@ -9,7 +9,7 @@ relative_permalinks: true
 # Setup
 title:            WhatsAndroid
 tagline:          'Hello, Android!'
-description:      'Android'
+description:      'Hello, Android!'
 url:              https://erehmi.github.io/
 baseurl:          /
 
