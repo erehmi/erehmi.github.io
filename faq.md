@@ -11,8 +11,6 @@ HOW TO ..
 
 -   [Jekyll Documentation(zh-CN)](<http://jekyll.bootcss.com/docs/home/>)
 
- 
-
 Other
 
-~   http://gayan.me/harmony/faq/
+: http://gayan.me/harmony/faq/
