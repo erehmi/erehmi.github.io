@@ -1,11 +1,11 @@
-EREHMi
+erehmi
 ======
 
 forked from [gayanvirajith/harmony](<https://github.com/gayanvirajith/harmony>)
 
  
 
-About EREHMi
+About erehmi
 ------------
 
 A personal blog for android.

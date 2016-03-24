@@ -32,9 +32,9 @@ harmony:
   # Profile links, leave blank to ignore
   social: 
     github: erehmi
+	weibo: erehmi
     twitter: erehmi
     facebook: erehmi
-    gplus: +erehmi
 
   # Toggle disclaimer in footer
   show_disclaimer: true
