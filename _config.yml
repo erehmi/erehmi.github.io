@@ -18,7 +18,7 @@ harmony:
   # It will appear in your document head meta (for Google search results) and 
   # in your feed.xml site description.
   meta_description: > # 
-   A personal blog. Sourced on Github - 
+   A personal blog for android. Sourced on Github - 
    https://github.com/erehmi/erehmi.github.io
   basetheme: theme-base-01 # pre defined thmes are darken, blue-water, redish.
   author: # Author details

@@ -1,12 +1,14 @@
-Harmony
-=======
+EREHMi
+======
 
 forked from [gayanvirajith/harmony](<https://github.com/gayanvirajith/harmony>)
 
  
 
-About jekyll
+About EREHMi
 ------------
+
+A personal blog for android.
 
  
 
