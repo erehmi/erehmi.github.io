@@ -3,7 +3,7 @@ layout: page
 title: Help / FAQ
 ---
 
-HOW TO ..
+How to ..
 
 -   [Run Jekyll on Windows](<http://jekyll-windows.juthilo.com/>)
 
