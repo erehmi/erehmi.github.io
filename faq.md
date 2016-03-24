@@ -17,4 +17,4 @@ How to ..
 
 Other
 
-~   http://gayan.me/harmony/faq/
+: http://gayan.me/harmony/faq/
