@@ -13,6 +13,8 @@ HOW TO ..
 
 -   [DISQUS HOME](<https://disqus.com/>)
 
+-   [用Jekyll和Pygments配置代码高亮](<http://zyzhang.github.io/blog/2012/08/31/highlight-with-Jekyll-and-Pygments/>)
+
 Other
 
-: http://gayan.me/harmony/faq/
+~   http://gayan.me/harmony/faq/
