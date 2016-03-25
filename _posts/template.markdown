@@ -1,11 +1,11 @@
 ---
-date 2015-02-08 232600
-description 
-layout post
-permalink android-case-gallery
-categories
+date: "2015-02-08 23:26:00"
+description: ""
+layout: post
+permalink: android-case-gallery
+categories:
   - blog
   - android
   - case
-title Android开发案例 - 图库
+title: Android开发案例 - 图库
 ---
