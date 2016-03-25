@@ -25,70 +25,112 @@ title: "[Deprecated!] Android开发案例 - 微博正文"
 
 ![](<http://erehmi.github.io/assets/image/weibo-text-detail.png>)
 
-
 **知识要点:**
-
 1.  ListView
-
 2.  ListView \# HeaderView & FooterView
-
 3.  AbsListView.onScrollListener
-
 4.  ListAdapter
 
- 
-
 **实现代码:**
-
 **\> 定义**
-
 -   DetailActivity - 正文界面
-
 -   MiddleTab - 正文界面中的工具条
 
 **\> 界面需求-1**
-
-　　首先实现的是Sticky悬停效果, 基本思路是:
-
+首先实现的是Sticky悬停效果, 基本思路是:
 1.  设计正文界面的Layout-XML布局, 并以ListView来展示转发/评论/赞列表的详情.
-
-2.  设计MiddleTab的Layout-XML布局,
-    以android:visibility="gone"方式添加到上一个Layout-XML中, 这里的MiddleTab,
-    我们暂且叫它为Main-MiddleTab
-
-3.  设计另外一个布局, 包含正文布局和MiddleTab-Layout-XML,
-    并把它作为ListView的HeaderView, 我们暂且叫它为HeaderView-MiddlerTab
-
+2.  设计MiddleTab的Layout-XML布局, 以android:visibility="gone"方式添加到上一个Layout-XML中, 这里的MiddleTab, 我们暂且叫它为Main-MiddleTab
+3.  设计另外一个布局, 包含正文布局和MiddleTab-Layout-XML, 并把它作为ListView的HeaderView, 我们暂且叫它为HeaderView-MiddlerTab
 4.  当ListView\#HeaderView中的MiddleTab滚出屏幕顶部时, 显示Main-MiddleTab
 
- 
-
-  　　进入正题前, 先介绍以下几个类和变量:
-
--   [类] ScrollDetector - ListView滚动的辅助类,
-    它用来监听第一个Item滚动事件以及最后一个Item显示事件, 代码如下.
-
+进入正题前, 先介绍以下几个类和变量:
+-   [类] ScrollDetector - ListView滚动的辅助类, 它用来监听第一个Item滚动事件以及最后一个Item显示事件, 代码如下.
 -   [类] HdrViewHolder - 用保存HeaderView的Holder容器
-
 -   [变量] HdrViewHolder.middleTabs - HeaderView中的工具条
-
 -   [变量] mMiddleTabs - Main-MiddleTab
-
 -   [变量] mListView - 用来展示正文及详情的ListView
-
--   [变量] mListAdapter - ListItem适配器, 在这里,
-    我们假设它为DetailsAdapter类型(支持ArrayAdapter的操作),
-    并假定它能完美支持转发/评论/赞列表(本文中将不实现DetailsAdapter代码,
-    因为它的代码实现和常规Adapter基本相同).
-
+-   [变量] mListAdapter - ListItem适配器, 在这里, 我们假设它为DetailsAdapter类型(支持ArrayAdapter的操作), 并假定它能完美支持转发/评论/赞列表(本文中将不实现DetailsAdapter代码, 因为它的代码实现和常规Adapter基本相同).
 -   [变量] R.id.\*Tab - MiddleTab中转发/评论/赞所对应的RadioButton-id
 
-![](<http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif>)
+> ScrollDetector.java
+{% highlight java %}
+import ...
 
-ScrollDetector.java
+/**
+ * Detect scroll events of list or grid.
+ */
+public class ScrollDetector implements OnScrollListener {
+    /** @see #onScroll(android.widget.AbsListView, int, int, int) */
+    private boolean mFirstItemVisible = false;
+    private OnFirstItemScrollListener mFisListener;
+    private OnLastItemVisibleListener mLivListener;
 
-　　Layout-XML代码略. 需要说明的是,
-工具条是以RadioGroup方式实现的. 以下为DetailActivity.java代码:
+    public ScrollDetector(OnFirstItemScrollListener fisListener,
+            OnLastItemVisibleListener livListener) {
+        mFisListener = fisListener;
+        mLivListener = livListener;
+    }
+
+    public void setOnFirstItemScrollListener(OnFirstItemScrollListener listener) {
+        mFisListener = listener;
+    }
+
+    public void setOnLastItemVisibleListener(OnLastItemVisibleListener listener) {
+        mLivListener = listener;
+    }
+
+    @Override
+    public void onScrollStateChanged(AbsListView view, int scrollState) {
+        if (mLivListener != null) {
+            if (triggerLastItemVisible(view, scrollState)) {
+                mLivListener.onLastItemVisible();
+            }
+        }
+    }
+
+    private boolean triggerLastItemVisible(AbsListView view, int scrollState) {
+        return (scrollState == SCROLL_STATE_IDLE &&
+                (view.getLastVisiblePosition() == view.getCount() - 1));
+    }
+
+    /**
+     * 用超高的初速度滚动AbsListView时, 可能会出现跳过firstVisibleItem=0的情况, 因此,
+     * 通过设置mFirstItemVisible来避免在出现上述情况时不会调用onFirstItemScroll的问题
+     *
+     * @see OnScrollListener#onScroll(android.widget.AbsListView, int, int, int)
+     */
+    @Override
+    public void onScroll(AbsListView view, int firstVisibleItem,
+            int visibleItemCount, int totalItemCount) {
+        if (mFisListener != null) {
+            if (triggerFirstItemScroll(view, firstVisibleItem) || mFirstItemVisible) {
+                mFisListener.onFirstItemScroll(view.getChildAt(0));
+                if (!mFirstItemVisible) {
+                    mFirstItemVisible = true;
+                }
+            } else {
+                if (mFirstItemVisible) {
+                    mFirstItemVisible = false;
+                }
+            }
+        }
+    }
+
+    private boolean triggerFirstItemScroll(AbsListView view, int firstVisibleItem) {
+        return (firstVisibleItem == 0);
+    }
+
+    public static interface OnLastItemVisibleListener {
+        void onLastItemVisible();
+    }
+
+    public static interface OnFirstItemScrollListener {
+        void onFirstItemScroll(View itemView);
+    }
+}
+{% endhighlight %}
+
+　　Layout-XML代码略. 需要说明的是, 工具条是以RadioGroup方式实现的. 以下为DetailActivity.java代码:
 
 {% highlight java %}
 import ...
@@ -212,30 +254,202 @@ public class DetailActivity extends Activity implements onClickListener, OnCheck
 }
 {% endhighlight %}
 
- 
-
-　　在上述代码中, 首先用ScrollDetector实现了Sticky悬停效果,
-然后就是同步Main-MiddleTab和HeaderView-MiddlerTab的checked状态. 接下来,
-再看如何实现界面需求-2.
-
- 
+　　在上述代码中, 首先用ScrollDetector实现了Sticky悬停效果, 然后就是同步Main-MiddleTab和HeaderView-MiddlerTab的checked状态. 接下来, 再看如何实现界面需求-2. 
 
 **\> 界面需求-2**
 
-　　进入正题前, 我们还得介绍一个辅助类PlaceholderListAdapter,
-它虽然有点像android系统的HeaderViewListAdapter,
-但它却是我们用来应付Item未能占满ListView的情况的辅助类.
-假想下当所有数据都加载到ListView的情况, 如果第一个数据项已经不显示在ListView上,
-那么这时我们可以认为ListView已经被Item占满了, 否则,
-就需要非数据项视图或者FooterView来占满空余的ListView.
-而PlaceholderListAdapter的原理正是这样,
-我们先预置一个类似FooterView的View给PlaceholderListAdapter,
-并且在getView()时检测ListView是否已经需要显示该View了, 如果是,
-则按上述逻辑来处理. 代码如下:
+　　进入正题前, 我们还得介绍一个辅助类PlaceholderListAdapter, 它虽然有点像android系统的HeaderViewListAdapter, 但它却是我们用来应付Item未能占满ListView的情况的辅助类. 假想下当所有数据都加载到ListView的情况, 如果第一个数据项已经不显示在ListView上, 那么这时我们可以认为ListView已经被Item占满了, 否则, 就需要非数据项视图或者FooterView来占满空余的ListView. 而PlaceholderListAdapter的原理正是这样, 我们先预置一个类似FooterView的View给PlaceholderListAdapter, 并且在getView()时检测ListView是否已经需要显示该View了, 如果是, 则按上述逻辑来处理. 代码如下:
+> PlaceholderListAdapter.java
+{% highlight java %}
+import ...
 
-![](<http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif>)
+/**
+ * PlaceholderListAdapter可以帮助我们解决这样的问题:<br> <ul><li>当所有Item视图不足以占满ListView时,
+ * 用空白视图来填充空白区域.</li></ul><br> 效果图见微博Android客户端的微博正文页面. 该适配器主要是用来提升用户体验的,
+ * 尤其是在切换TAB时.
+ *
+ * @see android.widget.HeaderViewListAdapter
+ */
+public class PlaceholderListAdapter implements WrapperListAdapter {
+    private final ListAdapter mAdapter;
 
-PlaceholderListAdapter.java
+    public class FixedViewInfo {
+        public View view;
+        public Object data;
+        public boolean isSelectable;
+    }
+
+    private ArrayList<FixedViewInfo> mFooterViewInfos;
+    private View mPinnedHeaderView;
+
+    public PlaceholderListAdapter(Context context, ListAdapter adapter) {
+        mAdapter = adapter;
+        mFooterViewInfos = new ArrayList<FixedViewInfo>();
+        init(context);
+    }
+
+    private void init(Context context) {
+        View placeholder = new View(context);
+        placeholder.setLayoutParams(
+                new AbsListView.LayoutParams(
+                        LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+        addFooterView(placeholder, true);
+    }
+
+    public void setPinnedHeaderView(View view) {
+        mPinnedHeaderView = view;
+    }
+
+    public void addFooterView(View view) {
+        addFooterView(view, false);
+    }
+
+    private void addFooterView(View view, boolean isPlaceholder) {
+        FixedViewInfo info = new FixedViewInfo();
+        info.view = view;
+        info.data = null;
+        info.isSelectable = true;
+        if (isPlaceholder) {
+            mFooterViewInfos.add(info);
+        } else {
+            mFooterViewInfos.add(mFooterViewInfos.size() - 1, info);
+        }
+    }
+
+    public int getPlaceholdersCount() {
+        return mFooterViewInfos.size();
+    }
+
+    @Override
+    public boolean hasStableIds() {
+        return (mAdapter != null) ? mAdapter.hasStableIds() : false;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return mAdapter == null || mAdapter.isEmpty();
+    }
+
+    @Override
+    public int getCount() {
+        int adapterCount = (mAdapter != null) ? mAdapter.getCount() : 0;
+        return getPlaceholdersCount() + adapterCount;
+    }
+
+    @Override
+    public boolean areAllItemsEnabled() {
+        if (mAdapter != null) {
+            return mAdapter.areAllItemsEnabled();
+        } else {
+            return true;
+        }
+    }
+
+    @Override
+    public boolean isEnabled(int position) {
+        if (mAdapter != null && position < mAdapter.getCount()) {
+            return mAdapter.isEnabled(position);
+        }
+        return false;
+    }
+
+    @Override
+    public Object getItem(int position) {
+        int adapterCount = 0;
+        if (mAdapter != null) {
+            adapterCount = mAdapter.getCount();
+            if (position < adapterCount) {
+                return mAdapter.getItem(position);
+            }
+        }
+
+        return mFooterViewInfos.get(position - adapterCount).data;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        if (mAdapter != null && position < mAdapter.getCount()) {
+            return mAdapter.getItemId(position);
+        }
+
+        return -1;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        int adapterCount = 0;
+        if (mAdapter != null) {
+            adapterCount = mAdapter.getCount();
+            if (position < adapterCount) {
+                return mAdapter.getView(position, convertView, parent);
+            }
+        }
+
+        View view = mFooterViewInfos.get(position - adapterCount).view;
+        if (position == getCount() - 1) {// 当convertView为占位View时
+            if (!(parent instanceof ListView)) {
+                throw new IllegalArgumentException("the parent is not a ListView.");
+            }
+
+            ListView listView = (ListView) parent;
+            int startPosition = listView.getHeaderViewsCount();
+            int itemsHeight = (mPinnedHeaderView != null) ? mPinnedHeaderView.getHeight() : 0;
+            int firstVisiblePos = listView.getFirstVisiblePosition();
+            int lastVisiblePos = listView.getLastVisiblePosition();
+            if (startPosition >= firstVisiblePos) {// 第一个数据视图还在屏幕上, 此时需要占位视图
+                for (int i = startPosition; i <= lastVisiblePos; ++i) {
+                    View childView = listView.getChildAt(i - firstVisiblePos);
+                    itemsHeight += childView.getHeight();
+                }
+            } else {// 第一个数据视图已经滚出屏幕, 此时不需要显示占位视图
+                itemsHeight = listView.getHeight();
+            }
+
+            ViewGroup.LayoutParams params = view.getLayoutParams();
+            if (params == null) {
+                throw new IllegalArgumentException("the layout parameters is not set.");
+            }
+
+            params.height = listView.getHeight() - itemsHeight;
+            //view.setLayoutParams(params);
+        }
+
+        return view;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if (mAdapter != null && position < mAdapter.getCount()) {
+            return mAdapter.getItemViewType(position);
+        }
+        return AdapterView.ITEM_VIEW_TYPE_HEADER_OR_FOOTER;
+    }
+
+    @Override
+    public int getViewTypeCount() {
+        return (mAdapter != null) ? mAdapter.getViewTypeCount() : 1;
+    }
+
+    @Override
+    public void registerDataSetObserver(DataSetObserver observer) {
+        if (mAdapter != null) {
+            mAdapter.registerDataSetObserver(observer);
+        }
+    }
+
+    @Override
+    public void unregisterDataSetObserver(DataSetObserver observer) {
+        if (mAdapter != null) {
+            mAdapter.unregisterDataSetObserver(observer);
+        }
+    }
+
+    @Override
+    public ListAdapter getWrappedAdapter() {
+        return mAdapter;
+    }
+}
+{% endhighlight %}
 
 　　既然有了PlaceholderListAdapter, 那后面就是很简单的事情了,
 就只剩下在切换MiddleTab时保存ListView的滚动位置的问题了, 到这里,
@@ -341,4 +555,5 @@ view)来替代ListView.addFooterView(View view)调用,
 那正是我们用来占满空余ListView的视图.
  
 
-**END.**
+**END. \>\> SEE MORE:**
+[http://erehmi.github.io/](<**http://erehmi.github.io/**>)
