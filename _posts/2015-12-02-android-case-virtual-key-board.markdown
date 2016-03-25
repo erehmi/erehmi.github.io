@@ -56,9 +56,7 @@ title: Android开发案例 - 自定义虚拟键盘
 Sample ](<https://github.com/erehmi/VirtualKeyboardController/tree/master/sample>)
 
 ### 扩展用法:
-如果页面布局的最外层视图不是LinearLayout,
-扩展 *VirtualKeyboardController.LayoutManager* 接口即可,
-可参考 *LinearLayoutManager *实现代码.
+如果页面布局的最外层视图不是LinearLayout, 扩展 *VirtualKeyboardController.LayoutManager* 接口即可, 可参考 *LinearLayoutManager *实现代码.
 
 
 ### 相关:
