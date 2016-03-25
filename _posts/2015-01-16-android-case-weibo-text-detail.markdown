@@ -85,7 +85,9 @@ import ...
  * Detect scroll events of list or grid.
  */ 
 public class ScrollDetector implements OnScrollListener { 
-    /\*\* @see \#onScroll(android.widget.AbsListView,int, int, int) \*/ 
+    /**
+      * @see #onScroll(android.widget.AbsListView,int, int, int)
+      */ 
     private boolean mFirstItemVisible = false; 
     private OnFirstItemScrollListener mFisListener; 
     private OnLastItemVisibleListener mLivListener;
@@ -506,18 +508,18 @@ public class PlaceholderListAdapter implements WrapperListAdapter {
     private SparseArray mSavedStates;
 
     private void initMiddleTabsStates() {
-　　　　mSavedStates = new SparseArray();
-　　　　int[] ids = {R.id.commentTab, R.id.praiseTab};
-　　　　for (int id : ids) {
-　　　　　　mSavedStates.put(id, new SavedState());
-　　　　}
-　　}
+        mSavedStates = new SparseArray();
+        int[] ids = {R.id.commentTab, R.id.praiseTab};
+        for (int id : ids) {
+            mSavedStates.put(id, new SavedState());
+        }
+    }
  
     private void initDetails() {
         mScrollDetector = new ScrollDetector(this, this);
         mListView.setOnScrollListener(mScrollDetector);
         mListAdapter = new DetailsAdapter(this);
-        //mListView.setAdapter(wrapperAdapter);　　// 这行代码只能满足界面需求-1
+        //mListView.setAdapter(wrapperAdapter); // 这行代码只能满足界面需求-1
 
         PlaceholderListAdapter wrapperAdapter = new PlaceholderListAdapter(this, mListAdapter);
         wrapperAdapter.setPinnedHeaderView(mHdrViewHolder.middleTabs);
@@ -553,7 +555,7 @@ public class PlaceholderListAdapter implements WrapperListAdapter {
         }
     }
 
-　　/**
+    /**
      * 保存对应ID的TAB的状态, 并在切换回来之后, 还原该TAB的状态
      * @see #restoreMiddleTabsStates()
      */
@@ -574,6 +576,7 @@ public class PlaceholderListAdapter implements WrapperListAdapter {
         state.viewTop = mMiddleTabs.getHeight() - mListView.getPaddingTop();
     }
 {% endhighlight %}  
+
 
 　　到这里, 我们已经实现了微博正文界面.
 需要说明的是使用PlaceholderListAdapter之后,
