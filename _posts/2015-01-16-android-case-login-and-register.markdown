@@ -52,37 +52,29 @@ Intent.FLAG\_ACTIVITY\_CLEAR\_TOP不同, 它是在API-Level-11时引入的,
 　　官方文档如下:
 
 >   public static final int **FLAG\_ACTIVITY\_CLEAR\_TASK**
-
 >   Added in API level 11
-
 >   If set in an Intent passed to Context.startActivity(), this flag will cause
 >   any existing task that would be associated with the activity to be cleared
 >   before the activity is started. That is, the activity becomes the new root
 >   of an otherwise empty task, and any old activities are finished. This can
 >   only be used in conjunction with FLAG\_ACTIVITY\_NEW\_TASK.
-
 >    public static final int **FLAG\_ACTIVITY\_NEW\_TASK**
-
 >   Added in API level 1
-
 >   If set, this activity will become the start of a new task on this history
 >   stack. A task (from the activity that started it to the next task activity)
 >   defines an atomic group of activities that the user can move to. Tasks can
 >   be moved to the foreground and background; all of the activities inside of a
 >   particular task always remain in the same order. See Tasks and Back Stack
 >   for more information about tasks.
-
 >   This flag is generally used by activities that want to present a "launcher"
 >   style behavior: they give the user a list of separate things that can be
 >   done, which otherwise run completely independently of the activity launching
 >   them.
-
 >   When using this flag, if a task is already running for the activity you are
 >   now starting, then a new activity will not be started; instead, the current
 >   task will simply be brought to the front of the screen with the state it was
 >   last in. See FLAG\_ACTIVITY\_MULTIPLE\_TASK for a flag to disable this
 >   behavior.
-
 >   This flag can not be used when the caller is requesting a result from the
 >   activity being launched.
 
