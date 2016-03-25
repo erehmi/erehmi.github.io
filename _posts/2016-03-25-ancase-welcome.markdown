@@ -87,16 +87,16 @@ public abstract class MainActivity extends Activity {
     ...
 
     @Override
-    public void onBackPressed() { 　　　　
-　　　　// 方法 1: goto the default launcher. It's not recommended.
-　　　　// Intent i = new Intent(Intent.ACTION_MAIN);
-　　　　// i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-　　　　// i.addCategory(Intent.CATEGORY_HOME);
-　　　　// startActivity(i);
+    public void onBackPressed() {
+        // 方法 1: goto the default launcher. It's not recommended.
+        // Intent i = new Intent(Intent.ACTION_MAIN);
+        // i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        // i.addCategory(Intent.CATEGORY_HOME);
+        // startActivity(i);
 
-　　　　// 方法 2: goto the default launcher. It's recommended.
-　　　　moveTaskToBack(true);
-　　}
+        // 方法 2: goto the default launcher. It's recommended.
+        moveTaskToBack(true);
+    }
 }
 {% endhighlight %} 
 
