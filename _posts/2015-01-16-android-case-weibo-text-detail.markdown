@@ -2,7 +2,7 @@
 date: "2015-01-16 21:15:00"
 description: ""
 layout: post
-permalink: ancase-login-and-register
+permalink: android-case-weibo-text-detail
 categories:
   - blog
   - android

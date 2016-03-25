@@ -2,7 +2,7 @@
 date: "2015-01-15 13:10:00"
 description: ""
 layout: post
-permalink: ancase-welcome
+permalink: android-case-welcome
 categories:
   - blog
   - android
