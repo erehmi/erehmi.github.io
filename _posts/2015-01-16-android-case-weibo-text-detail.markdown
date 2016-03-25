@@ -58,7 +58,6 @@ android.support.design.widget.CoordinatorLayout.**
 
 5.  当ListView\#HeaderView中的MiddleTab滚出屏幕顶部时, 显示Main-MiddleTab
 
- 
 
 进入正题前, 先介绍以下几个类和变量:
 
@@ -80,15 +79,14 @@ android.support.design.widget.CoordinatorLayout.**
 
 -   [变量] R.id.\*Tab - MiddleTab中转发/评论/赞所对应的RadioButton-id
 
- 
 
 >   ScrollDetector.java 
 {% highlight java %} 
 import ...
 
-/\*\* 
- \* Detect scroll events of list or grid.
- \*/ 
+/** 
+ * Detect scroll events of list or grid.
+ */ 
 public class ScrollDetector implements OnScrollListener { 
     /\*\* @see \#onScroll(android.widget.AbsListView,int, int, int) \*/ 
     private boolean mFirstItemVisible = false; 
@@ -303,11 +301,11 @@ public class DetailActivity extends Activity implements onClickListener, OnCheck
 {% highlight java %} 
 import ...
 
-/\*\*
- \* PlaceholderListAdapter可以帮助我们解决这样的问题: 当所有Item视图不足以占满ListView时,
- \* 用空白视图来填充空白区域.效果图见微博Android客户端的微博正文页面. 该适配器主要是用来提升用户体验的,
- \* 尤其是在切换TAB时. @see android.widget.HeaderViewListAdapter
- \*/ 
+/**
+ * PlaceholderListAdapter可以帮助我们解决这样的问题: 当所有Item视图不足以占满ListView时,
+ * 用空白视图来填充空白区域.效果图见微博Android客户端的微博正文页面. 该适配器主要是用来提升用户体验的,
+ * 尤其是在切换TAB时. @see android.widget.HeaderViewListAdapter
+ */ 
 public class PlaceholderListAdapter implements WrapperListAdapter { 
     private final ListAdapter mAdapter;
 
@@ -536,10 +534,10 @@ public class PlaceholderListAdapter implements WrapperListAdapter {
         mMiddleTabs.check(R.id.commentTab);
     }
 
-    /\*\*
-     \* 还原对应ID的TAB的状态
-     \* @see \#saveMiddleTabsStates(int)
-     \*/
+    /**
+     * 还原对应ID的TAB的状态
+     * @see #saveMiddleTabsStates(int)
+     */
     private void restoreMiddleTabsStates() {
         int id = mMiddleTabs.getCheckedRadioButtonId();
         SavedState state = mSavedStates.get(id);
@@ -558,10 +556,10 @@ public class PlaceholderListAdapter implements WrapperListAdapter {
         }
     }
 
-　　/\*\*
-     \* 保存对应ID的TAB的状态, 并在切换回来之后, 还原该TAB的状态
-     \* @see \#restoreMiddleTabsStates()
-     \*/
+　　/**
+     * 保存对应ID的TAB的状态, 并在切换回来之后, 还原该TAB的状态
+     * @see #restoreMiddleTabsStates()
+     */
     private void saveMiddleTabsStates(int id) {
         SavedState state = mSavedStates.get(id);
         if (mMiddleTabs.getVisibility() == View.VISIBLE) {
