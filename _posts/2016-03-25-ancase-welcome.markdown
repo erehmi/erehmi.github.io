@@ -32,8 +32,7 @@ title: Android开发案例 - 欢迎界面
 -   MainActivity 为主界面 
 
 **\> AndroidManifest.xml**
-
-{% highlight java %}
+{% highlight xml %}
 <!-- 该文件为AndroidManifest.xml, 以下代码为application下的activity声明 -->
 
 <!-- 启动界面 -->
@@ -57,8 +56,6 @@ title: Android开发案例 - 欢迎界面
 直接在Intent中设置Intent.FLAG\_ACTIVITY\_NO\_HISTORY标识的效果同设置该属性为true的.
 
 **\> SplashActivity.java**
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 {% highlight java %}
 import ...
 
@@ -81,11 +78,8 @@ public abstract class SplashActivity extends Activity implements Runnable {
     }
 }
 {% endhighlight %} 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **\> MainActivity.java**
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 {% highlight java %}
 import ...
 
@@ -105,16 +99,13 @@ public abstract class MainActivity extends Activity {
 　　}
 }
 {% endhighlight %} 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 上述代码中, 提供了两个方法,
 第一个方法通过隐式Intent来切换到桌面应用(即Launcher),
 第二个方法则是将当前activity所在的task切换到后台, 需要注意的是,
 moveTaskToBack(boolean nonRoot) 的 nonRoot 参数, 如果nonRoot=false,
 则要求当前activity为栈顶activity, 否则, 调用将不起任何效果, 如果nonRoot=true,
-则忽略nonRoot=false时的条件, 因此, 我们在这里直接设置nonRoot=true
-
- 
+则忽略nonRoot=false时的条件, 因此, 我们在这里直接设置nonRoot=true 
 
 到这里, 我们可以一直按回退键, 直到切换到桌面,
 这时SplashActivity已经被系统清理了,
@@ -122,9 +113,6 @@ MainActivity连同它所在的Task已经切换到后台了. 下次我们再启�
 只要MainActivity没有被系统回收,
 那么我们再看到的MainActivity还是退回到桌面前的那个MainActivity.
 
- 
 
 **END. \>\> SEE MORE:**
 [http://erehmi.github.io/](<**http://erehmi.github.io/**>)
-
- 
