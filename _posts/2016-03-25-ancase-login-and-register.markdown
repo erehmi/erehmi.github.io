@@ -119,6 +119,6 @@ public class RegisterActivity extends Activity {
 activity了, 而其他activity则都被清理了.
 需要说明的是, finishWhenRegisterSucceeded() **没有**对启动RegisterActivity的LoginActivity做任何处理或者Intent回传.
 
- 
+
 **END. \>\> SEE MORE:**
 [http://erehmi.github.io/](<**http://erehmi.github.io/**>)
