@@ -45,6 +45,7 @@ title: Android开发案例 - 欢迎界面
 **\> AndroidManifest.xml**
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+{% highlight java %}
 <!-- 该文件为AndroidManifest.xml, 以下代码为application下的activity声明 -->
 
 <!-- 启动界面 -->
@@ -60,8 +61,9 @@ title: Android开发案例 - 欢迎界面
 <!-- 主界面 -->
 <activity android:name=".MainActivity" android:label="@string/app_name">
 </activity>
- 
+{% endhighlight %} 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 特别需要注意的是, 在上述Activity-XML定义中,
 我们设置了SplashActivity为noHistory的属性为true,
@@ -71,6 +73,7 @@ title: Android开发案例 - 欢迎界面
 **\> SplashActivity.java**
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+{% highlight java %}
 import ...
 
 public abstract class SplashActivity extends Activity implements Runnable {
@@ -91,11 +94,13 @@ public abstract class SplashActivity extends Activity implements Runnable {
         // 此处可以不需要调用finish()了, 因为已经设置了noHistory属性, 从而使得系统接管finish操作
     }
 }
+{% endhighlight %} 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **\> MainActivity.java**
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+{% highlight java %}
 import ...
 
 public abstract class MainActivity extends Activity {
@@ -113,6 +118,7 @@ public abstract class MainActivity extends Activity {
 　　　　moveTaskToBack(true);
 　　}
 }
+{% endhighlight %} 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 上述代码中, 提供了两个方法,
