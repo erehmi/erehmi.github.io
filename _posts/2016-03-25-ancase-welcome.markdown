@@ -1,4 +1,12 @@
 ---
+date: "2014-08-19 23:56:45"
+description: ""
+layout: post
+permalink: ancase-welcome
+categories:
+  - blog
+  - android
+  - welcome
 title: Android开发案例 - 欢迎界面
 ---
 
@@ -124,7 +132,7 @@ MainActivity连同它所在的Task已经切换到后台了. 下次我们再启�
 
  
 
-**END.   \>\>  SEE MORE:
-**[http://erehmi.github.io/](<**http://erehmi.github.io/**>)
+**END. \>\> SEE MORE:**
+[http://erehmi.github.io/](<**http://erehmi.github.io/**>)
 
  
