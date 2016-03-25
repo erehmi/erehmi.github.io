@@ -8,8 +8,10 @@ title: Blog archive
   	{% capture currentyear %}{{post.date | date: "%Y"}}{% endcapture %}
 	ABC
   	{% if currentyear != year %}
+		123
     	{% unless forloop.first %}</ul>{% endunless %}
-    		<h5>{{ currentyear }}</h5>
+			ABC123
+			<h5>{{ currentyear }}</h5>
     		<ul class="posts">
     		{% capture year %}{{currentyear}}{% endcapture %} 
   		{% endif %}
