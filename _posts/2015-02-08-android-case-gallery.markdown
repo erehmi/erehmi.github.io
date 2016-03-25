@@ -28,7 +28,8 @@ title: Android开发案例 - 图库
 
 **讨论: **[在Android上,
 如何实现流畅加载本地照片的相册? ](<http://segmentfault.com/q/1010000002542272/a-1020000002543547>)
- 
+
+
 **知识要点**
 
 -   *ContentProvider* - 数据存取接口
@@ -37,17 +38,11 @@ title: Android开发案例 - 图库
 
 -   [Android Universal Image Loader](<https://github.com/nostra13/Android-Universal-Image-Loader>)
 
-p.s. 实现图库的难点就在于, 如何快速的查询出图片以及目录信息, 貌似 Android
-没有直接提供这样的接口,
-我们只可以用 *android.provider.MediaStore.Images.Media* 和 *android.provider.MediaStore.Images.Thumbnails*.
-我们虽然能使用 *Thumbnails* 查询出缩略图信息和图片ID,
-但是它没有提供图片的详细信息, 另外,
-如果用于保存缩略图的信息或者目录被(意外或者人为)删除了,
-那使用 *Thumbnails* 基本上就没有什么意义了. 因此,
-我们在这里使用 *Media* 来查询图片以及目录. 
+p.s. 实现图库的难点就在于, 如何快速的查询出图片以及目录信息, 貌似 Android 没有直接提供这样的接口, 我们只可以用 *android.provider.MediaStore.Images.Media* 和 *android.provider.MediaStore.Images.Thumbnails*. 我们虽然能使用 *Thumbnails* 查询出缩略图信息和图片ID, 但是它没有提供图片的详细信息, 另外, 如果用于保存缩略图的信息或者目录被(意外或者人为)删除了, 那使用 *Thumbnails* 基本上就没有什么意义了. 因此, 我们在这里使用 *Media* 来查询图片以及目录. 
 
 
 **实现代码**
+
 **\> 定义**
 {% highlight java %}
 static final Uri CONTENT_URI = Media.EXTERNAL_CONTENT_URI;
@@ -57,10 +52,12 @@ static final String SORT_ORDER = Media.DATE_MODIFIED + " DESC";
 在这里, 我们只查询sdcard上的图片, 并按照修改时间倒序排列.
 
 **\> 查询图片**
+
 代码略, 直接使用 *CursorLoader* 按 **SORT\_ORDER **顺序加载图片,
 如果指定了目录, 则设置 **Media.BUCKET\_ID + "=?"** 的查询条件
 
 **\> 查询目录**
+
 和查询图片一样, 也使用CursorLoader来加载数据, 只不过设置的参数不同而已,
 如下:
 {% highlight java %}
@@ -79,13 +76,14 @@ static final String SELECTION = "1=1) GROUP BY (" + Media.BUCKET_ID;
 static final String[] SELECTION_ARGS = null;
 {% endhighlight %}
 
- 　　需要说明的是, 如果对应的目录不需要显示首张图片的缩略图, 那么可以使用方法一,
+需要说明的是, 如果对应的目录不需要显示首张图片的缩略图, 那么可以使用方法一,
 否则使用方法二(*PROJECTION* 要与 *SELETION* 配合使用, 而方法一不需要).
 其他参数对应设置到CursorLoader即可.
 
 
 **优化策略**
-　　最后, 需要提到的一点就是, 我们使用 UIL(即, [Android Universal Image
+
+最后, 需要提到的一点就是, 我们使用 UIL(即, [Android Universal Image
 Loader](<https://github.com/nostra13/Android-Universal-Image-Loader>)) 加载图片,
 但是每次加载都是我们查询出来的原图, 按照github上演示代码的全局初始设定,
 加载到三五屏, 第一屏的图片就已经不在内存缓存里,
