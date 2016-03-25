@@ -17,7 +17,7 @@ title: Android开发案例 - 欢迎界面
 
 ![](<http://images.cnitblog.com/blog/608747/201501/151335444483480.png>)
 
- 
+
 
 知识要点:
 ---------
