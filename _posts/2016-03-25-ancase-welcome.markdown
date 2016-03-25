@@ -14,37 +14,25 @@ title: Android开发案例 - 欢迎界面
 该类启动界面的特点是在整个Application的生命周期里, 它只会出现在第一次进入应用时,
 即便按回退键到桌面之后. 使用该类启动界面的应用还有: QQ, QQ音乐,
 网易云音乐和微博等等.
-
 ![](<http://erehmi.github.io/assets/image/wechat-welcome.png>)
-
-
 
 知识要点:
 ---------
-
 -   AndroidManifest.xml 中 activity 的 android:noHistory 属性, 即
     Intent.FLAG\_ACTIVITY\_NO\_HISTORY
-
 -   隐式Intent
-
 -   回退栈(BackStack)
 
-　　详细内容见[官方文档](<http://developer.android.com/develop/index.html>).
-
- 
+详细内容见[官方文档](<http://developer.android.com/develop/index.html>). 
 
 实现代码:
 ---------
-
 **\> 定义**
-
 -   SplashActivity 为启动界面
-
 -   MainActivity 为主界面 
 
 **\> AndroidManifest.xml**
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 {% highlight java %}
 <!-- 该文件为AndroidManifest.xml, 以下代码为application下的activity声明 -->
 
@@ -62,8 +50,6 @@ title: Android开发案例 - 欢迎界面
 <activity android:name=".MainActivity" android:label="@string/app_name">
 </activity>
 {% endhighlight %} 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 
 特别需要注意的是, 在上述Activity-XML定义中,
 我们设置了SplashActivity为noHistory的属性为true,
