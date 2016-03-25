@@ -18,8 +18,7 @@ title: Android开发案例 - 欢迎界面
 
 知识要点:
 ---------
--   AndroidManifest.xml 中 activity 的 android:noHistory 属性, 即
-    Intent.FLAG\_ACTIVITY\_NO\_HISTORY
+-   AndroidManifest.xml 中 activity 的 android:noHistory 属性, 即 Intent.FLAG\_ACTIVITY\_NO\_HISTORY
 -   隐式Intent
 -   回退栈(BackStack)
 
