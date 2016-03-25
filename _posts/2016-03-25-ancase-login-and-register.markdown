@@ -20,6 +20,7 @@ title: Android开发案例 - 注册登录
 那如果层级更深的话, 应该如何处理?**
 
 ![](<http://erehmi.github.io/assets/image/weibo-login.png>)
+
 ![](<http://erehmi.github.io/assets/image/weibo-register.png>)
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
