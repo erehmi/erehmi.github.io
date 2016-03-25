@@ -1,5 +1,5 @@
 ---
-date: "2015-12-21 17:29"
+date: "2015-12-21 17:29:00"
 description: ""
 layout: post
 permalink: android-case-taobao-goods-detail
