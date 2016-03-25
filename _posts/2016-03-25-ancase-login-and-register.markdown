@@ -6,7 +6,7 @@ permalink: ancase-login-and-register
 categories:
   - blog
   - android
-  - case
+  - case2
 title: Android开发案例 - 注册登录
 ---
 

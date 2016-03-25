@@ -6,7 +6,7 @@ permalink: ancase-welcome
 categories:
   - blog
   - android
-  - case
+  - case1
 title: Android开发案例 - 欢迎界面
 ---
 
