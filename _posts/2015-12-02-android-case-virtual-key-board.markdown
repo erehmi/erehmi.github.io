@@ -1,6 +1,5 @@
 ---
-date 2015-02-08 232600
-date: "2015-02-08 23:26:00"
+date: "2015-12-02 17:52:00"
 description: ""
 layout: post
 permalink: android-case-virtual-keyboard
