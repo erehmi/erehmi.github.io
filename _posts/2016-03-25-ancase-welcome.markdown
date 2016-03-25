@@ -1,6 +1,9 @@
 ---
-date: ""
-description: ""
+date: "2016-03-25 13:30:00"
+description: "本文详细描述了如何实现如下图中的微信启动界面.
+该类启动界面的特点是在整个Application的生命周期里, 它只会出现在第一次进入应用时,
+即便按回退键到桌面之后. 使用该类启动界面的应用还有: QQ, QQ音乐,
+网易云音乐和微博等等."
 layout: post
 permalink: ancase-welcome
 categories:
