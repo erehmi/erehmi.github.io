@@ -6,7 +6,7 @@ permalink: ancase-welcome
 categories:
   - blog
   - android
-  - welcome
+  - case
 title: Android开发案例 - 欢迎界面
 ---
 
@@ -15,7 +15,7 @@ title: Android开发案例 - 欢迎界面
 即便按回退键到桌面之后. 使用该类启动界面的应用还有: QQ, QQ音乐,
 网易云音乐和微博等等.
 
-![](<http://images.cnitblog.com/blog/608747/201501/151335444483480.png>)
+![](<http://erehmi.github.io/assets/image/wechat-welcome.png>)
 
 
 
