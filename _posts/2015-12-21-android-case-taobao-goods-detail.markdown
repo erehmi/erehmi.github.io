@@ -15,6 +15,7 @@ title: Android开发案例 - 淘宝商品详情
 -   采用上下分页的模式
 -   商品基本参数 & 选购参数在上页展示
 -   商品图文详情等其他信息放在下页展示
+
 ![](<http://erehmi.github.io/assets/image/taobao-goods-detail.png>)
 
 **知识要点**

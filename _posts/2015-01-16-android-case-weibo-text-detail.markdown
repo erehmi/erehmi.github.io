@@ -14,11 +14,11 @@ title: "[Deprecated!] Android开发案例 - 微博正文"
 android.support.design.widget.CoordinatorLayout.**
 
 
-本文详细介绍如何实现如下图中的[微博](<http://m.weibo.com/web/cellphone.php#android>)正文页面效果,
-其中包括:
+本文详细介绍如何实现如下图中的[微博](<http://m.weibo.com/web/cellphone.php#android>)正文页面效果, 其中包括:
 -   实现页面滚动时[转发-评论-赞]工具条的[Sticky悬停效果](<https://github.com/emilsjolander/StickyListHeaders>)
 -   实现工具条切换,
     并解决[转发-评论-赞]子页面item不足以占满屏幕时切换页面导致屏幕滚动的问题
+
 ![](<http://erehmi.github.io/assets/image/weibo-text-detail.png>)
 
 **知识要点:**

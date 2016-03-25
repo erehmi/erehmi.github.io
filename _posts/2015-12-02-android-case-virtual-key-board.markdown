@@ -11,6 +11,7 @@ title: Android开发案例 - 自定义虚拟键盘
 ---
 
 所有包含IM功能的App(如微信, 微博, QQ, 支付宝等)都提供了Emoji表情之类的虚拟键盘, 如下图:
+
 ![](<http://erehmi.github.io/assets/image/wechat_chat.png>)
 
 本文只着重介绍如何实现输入法键盘和自定义虚拟键盘的流畅切换,

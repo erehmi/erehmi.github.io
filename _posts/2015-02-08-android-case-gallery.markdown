@@ -18,6 +18,7 @@ title: Android开发案例 - 图库
 另外, 界面要素包括:
 -   图片缩略图
 -   图片目录列表以及目录中包含的图片数
+
 ![](<http://erehmi.github.io/assets/image/wechat-gallery.png>)
 
 **讨论: **[在Android上,

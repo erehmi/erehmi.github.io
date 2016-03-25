@@ -14,6 +14,7 @@ title: Android开发案例 – 在AbsListView中使用倒计时
 在App中, 有多种多样的倒计时需求, 比如:
 1.  在单View上, 使用倒计时, 如(如图-1)
 2.  在ListView(或者GridView)的ItemView上, 使用倒计时(如图-2)
+
 ![](<http://erehmi.github.io/assets/image/count-down.png>)
 
 相比需求-1, 需求-2的难度更大, 性能要求更高:
