@@ -1,5 +1,5 @@
 ---
-date: "2014-08-19 23:56:45"
+date: ""
 description: ""
 layout: post
 permalink: ancase-welcome
