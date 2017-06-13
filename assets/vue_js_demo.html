@@ -1,0 +1,125 @@
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="googlebot" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <style>
+    .btn-block {
+        display: block;
+        height: 45px;
+        line-height: 45px;
+        margin: 10px auto;
+        color: #fff;
+        background: #8bc53f;
+        border-radius: 10px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .content {
+        text-align: left;
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+  </style>
+
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.12/vue.js"></script>
+  <title>Vue.js demo</title>
+
+  <script type="text/javascript">//<![CDATA[
+    window.onload=function(){
+        var MyComponent = Vue.extend({
+          template: '<p>Hello</p><ul><li v-for="thing in things">{{ thing }}</li></ul>',
+          data: function() {
+            return {
+              things: []
+            };
+          },
+          methods: {
+              share: function() {
+                  this.things.push(this.things.length + ' - Action: 分享 - Vue.js回调');
+                  WebViewJavascriptBridge.share('{"subject" : "这是标题","text" : "这是文本内容","images" : ["http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/20170606160335.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/DSC00042.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/Helping-kids-with-tantrums_meitu_1.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/HomePod-1.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/MG_1148.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/Screenshot_2017_03_20_17_58_26-1024x640.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/StockSnap_SWRREC0K3A.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/XXX.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/adobe-scan-blog-header.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/hpyqup.jpg"]}', "window.vue.shareCallback");
+              },
+              share2: function() {
+                  this.things.push(this.things.length + ' - Action: 分享 - 外部JS回调');
+                  WebViewJavascriptBridge.share('{"subject" : "这是标题","text" : "这是文本内容","images" : ["http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/20170606160335.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/DSC00042.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/Helping-kids-with-tantrums_meitu_1.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/HomePod-1.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/MG_1148.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/Screenshot_2017_03_20_17_58_26-1024x640.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/StockSnap_SWRREC0K3A.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/XXX.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/adobe-scan-blog-header.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/hpyqup.jpg"]}', "callShareCallbackExtern");
+              },
+              shareCallback: function(result){
+                  this.things.push(this.things.length + ' - ActionCallback: 分享回调');
+                  alert(result['value']);
+              },
+              viewPictures: function() {
+                  this.things.push(this.things.length + ' - Action: 浏览大图');
+                  WebViewJavascriptBridge.viewPictures('{"images" : ["http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/20170606160335.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/DSC00042.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/Helping-kids-with-tantrums_meitu_1.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/HomePod-1.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/MG_1148.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/Screenshot_2017_03_20_17_58_26-1024x640.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/StockSnap_SWRREC0K3A.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/XXX.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/adobe-scan-blog-header.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/hpyqup.jpg"]}', 2);
+              },
+              callByExtern: function(result) {
+                  this.things.push(this.things.length + ' - Action: 外部调用Vue.js');
+                  alert(result['value']);
+              }
+        },
+        created () {
+            window.vue = this
+            }
+        });
+
+        var vm = new Vue({
+          el: '#app',
+          components: {
+          'my-component': MyComponent
+          }
+        });
+        window.vm = vm;
+
+        document.getElementById("shareButton").onclick = function () {
+            //window.vue.share();
+            vm.$refs.foo.share();
+        };
+        
+        document.getElementById("shareButton2").onclick = function () {
+            //window.vue.share2();
+            vm.$refs.foo.share2();
+        };
+        
+        document.getElementById("viewPicturesButton").onclick = function () {
+            //window.vue.viewPictures();
+            vm.$refs.foo.viewPictures();
+        };
+}//]]>
+
+function callShareCallbackExtern(argument) {
+    window.vue.shareCallback(argument);
+    //window.vm.$refs.foo.shareCallback(argument);
+}
+
+function callVueJsMethod(argument) {
+    window.vue.callByExtern(argument);
+    //window.vm.$refs.foo.callByExtern(argument);
+}
+
+</script>
+ </head>
+
+ <body>
+  <div id="app">
+   <h1>Vue.js Demo</h1>
+  
+   <button id="shareButton">分享 - Vue.js回调</button>
+   <button id="shareButton2">分享 - 外部JS回调</button>
+   <button id="viewPicturesButton">浏览大图</button>
+   <button id="externalButton" onclick="callVueJsMethod({'value': 'It Works!'})">外部调用Vue.js</button>
+    
+   <my-component v-ref:foo=""></my-component>
+  </div>
+  <script>
+        // tell the embed parent frame the height of the content
+        if (window.parent && window.parent.parent){
+            window.parent.parent.postMessage(["resultsFrame", {
+              height: document.body.getBoundingClientRect().height,
+              slug: "6v7y6msr"
+            }], "*")
+        }
+        </script>
+ </body>
+</html>
