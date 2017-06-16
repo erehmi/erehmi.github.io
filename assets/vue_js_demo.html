@@ -38,6 +38,22 @@
             };
           },
           methods: {
+               shareToWechat: function() {
+                  this.things.push(this.things.length + ' - Action: 分享到微信');
+                  WebViewJavascriptBridge.shareToWechat('{"subject" : "这是标题","text" : "这是文本内容","url" : "http:www.baidu.com","images" : "http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/Helping-kids-with-tantrums_meitu_1.jpg"}', "window.vue.shareCallback");
+              },
+              shareToWechatMoments: function() {
+                  this.things.push(this.things.length + ' - Action: 分享到微信朋友');
+                  WebViewJavascriptBridge.shareToWechatMoments('{"subject" : "这是标题","text" : "这是文本内容","url" : "http:www.baidu.com","images" : "http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/Helping-kids-with-tantrums_meitu_1.jpg"}', "window.vue.shareCallback");
+              },
+              shareToQQ: function() {
+                  this.things.push(this.things.length + ' - Action: 分享到QQ');
+                  WebViewJavascriptBridge.shareToQQ('{"subject" : "这是标题","text" : "这是文本内容","url" : "http:www.baidu.com","images" : "http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/Helping-kids-with-tantrums_meitu_1.jpg"}', "window.vue.shareCallback");
+              },
+              shareToQzone: function() {
+                  this.things.push(this.things.length + ' - Action: 分享到QQ空间');
+                  WebViewJavascriptBridge.shareToQzone('{"subject" : "这是标题","text" : "这是文本内容","url" : "http:www.baidu.com","images" : "http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/Helping-kids-with-tantrums_meitu_1.jpg"}', "window.vue.shareCallback");
+              },
               share: function() {
                   this.things.push(this.things.length + ' - Action: 分享 - Vue.js回调');
                   WebViewJavascriptBridge.share('{"subject" : "这是标题","text" : "这是文本内容","images" : ["http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/20170606160335.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/DSC00042.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/Helping-kids-with-tantrums_meitu_1.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/HomePod-1.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/MG_1148.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/Screenshot_2017_03_20_17_58_26-1024x640.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/StockSnap_SWRREC0K3A.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/XXX.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/adobe-scan-blog-header.jpg","http://ifanr-cdn.b0.upaiyun.com/wp-content/uploads/2017/06/hpyqup.jpg"]}', "window.vue.shareCallback");
@@ -75,7 +91,27 @@
           }
         });
         window.vm = vm;
-
+        
+        document.getElementById("shareToWechatButton").onclick = function () {
+            //window.vue.share();
+            vm.$refs.foo.shareToWechat();
+        };
+        
+        document.getElementById("shareToWechatMomentsButton").onclick = function () {
+            //window.vue.share();
+            vm.$refs.foo.shareToWechatMoments();
+        };
+        
+        document.getElementById("shareToQQButton").onclick = function () {
+            //window.vue.share();
+            vm.$refs.foo.shareToQQ();
+        };
+        
+        document.getElementById("shareToQzoneButton").onclick = function () {
+            //window.vue.share();
+            vm.$refs.foo.shareToQzone();
+        };
+        
         document.getElementById("shareButton").onclick = function () {
             //window.vue.share();
             vm.$refs.foo.share();
@@ -114,6 +150,11 @@ function callVueJsMethod(argument) {
   <div id="app">
    <h1>Vue.js Demo</h1>
   
+   <button id="shareToWechatButton">分享到微信</button>
+   <button id="shareToWechatMomentsButton">分享到微信朋友圈</button>
+   <button id="shareToQQButton">分享到QQ</button>
+   <button id="shareToQzoneButton">分享到QQ空间</button>
+   <p>
    <button id="shareButton">分享 - Vue.js回调</button>
    <button id="shareButton2">分享 - 外部JS回调</button>
    <button id="xshareButton">编辑并分享</button>
