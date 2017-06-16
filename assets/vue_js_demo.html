@@ -91,7 +91,7 @@
           }
         });
         window.vm = vm;
-/*        
+        
         document.getElementById("shareToWechatButton").onclick = function () {
             //window.vue.share();
             vm.$refs.foo.shareToWechat();
@@ -111,7 +111,7 @@
             //window.vue.share();
             vm.$refs.foo.shareToQzone();
         };
-*/        
+        
         document.getElementById("shareButton").onclick = function () {
             //window.vue.share();
             vm.$refs.foo.share();
@@ -149,13 +149,13 @@ function callVueJsMethod(argument) {
  <body>
   <div id="app">
    <h1>Vue.js Demo</h1>
-<!--  
+  
    <button id="shareToWechatButton">分享到微信</button>
    <button id="shareToWechatMomentsButton">分享到微信朋友圈</button>
    <p>
    <button id="shareToQQButton">分享到QQ</button>
    <button id="shareToQzoneButton">分享到QQ空间</button>
-   <p> -->
+   <p>
    <button id="shareButton">分享 - Vue.js回调</button>
    <button id="shareButton2">分享 - 外部JS回调</button>
    <button id="xshareButton">编辑并分享</button>
