@@ -24,7 +24,7 @@ title: Android开发案例 - 图库
 
 -   图片目录列表以及目录中包含的图片数
 
-![](<http://erehmi.github.io/assets/image/wechat-gallery.png>)
+![](<http://mo0n1andin.github.io/assets/image/wechat-gallery.png>)
 
 **讨论: **[在Android上,
 如何实现流畅加载本地照片的相册? ](<http://segmentfault.com/q/1010000002542272/a-1020000002543547>)
@@ -102,4 +102,4 @@ Loader](<https://github.com/nostra13/Android-Universal-Image-Loader>)) 加载图
 
 
 **END. \>\> SEE MORE:**
-[http://erehmi.github.io/](<**http://erehmi.github.io/**>)
+[http://mo0n1andin.github.io/](<**http://mo0n1andin.github.io/**>)

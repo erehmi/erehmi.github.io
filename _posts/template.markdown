@@ -7,7 +7,7 @@ categories:
   - blog
   - android
   - case
-title: Android¿ª·¢°¸Àý - Í¼¿â
+title: Androidï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - Í¼ï¿½ï¿½
 ---
 
 
@@ -16,4 +16,4 @@ title: Android¿ª·¢°¸Àý - Í¼¿â
 
 
 **END. \>\> SEE MORE:**
-[http://erehmi.github.io/](<**http://erehmi.github.io/**>)
+[http://mo0n1andin.github.io/](<**http://mo0n1andin.github.io/**>)

@@ -23,7 +23,7 @@ title: Android开发案例 - 注册登录
 **在整个交互场景里有个问题, 就是如何在完成注册之后关闭之前已经打开过的界面.
 那如果层级更深的话, 应该如何处理?**
 
-![](<http://erehmi.github.io/assets/image/weibo-login-and-register.png>)
+![](<http://mo0n1andin.github.io/assets/image/weibo-login-and-register.png>)
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 注: 按此文分割线以下的方式处理, 存在一些问题, 如下:
@@ -115,4 +115,4 @@ activity了, 而其他activity则都被清理了.
 
 
 **END. \>\> SEE MORE:**
-[http://erehmi.github.io/](<**http://erehmi.github.io/**>)
+[http://mo0n1andin.github.io/](<**http://mo0n1andin.github.io/**>)

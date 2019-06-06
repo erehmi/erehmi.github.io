@@ -12,7 +12,7 @@ title: Android开发案例 - 欢迎界面
 
 本文详细描述了如何实现如下图中的微信启动界面. 该类启动界面的特点是在整个Application的生命周期里, 它只会出现在第一次进入应用时, 即便按回退键到桌面之后. 使用该类启动界面的应用还有: QQ, QQ音乐, 网易云音乐和微博等等.
 
-![](<http://erehmi.github.io/assets/image/wechat-welcome.png>)
+![](<http://mo0n1andin.github.io/assets/image/wechat-welcome.png>)
 
 知识要点:
 ---------
@@ -112,4 +112,4 @@ MainActivity连同它所在的Task已经切换到后台了. 下次我们再启�
 
 
 **END. \>\> SEE MORE:**
-[http://erehmi.github.io/](<**http://erehmi.github.io/**>)
+[http://mo0n1andin.github.io/](<**http://mo0n1andin.github.io/**>)

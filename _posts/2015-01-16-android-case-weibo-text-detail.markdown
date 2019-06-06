@@ -20,7 +20,7 @@ android.support.design.widget.CoordinatorLayout.**
 
 -   实现工具条切换, 并解决[转发-评论-赞]子页面item不足以占满屏幕时切换页面导致屏幕滚动的问题
 
-![](<http://erehmi.github.io/assets/image/weibo-text-detail.png>)
+![](<http://mo0n1andin.github.io/assets/image/weibo-text-detail.png>)
 
 **知识要点:**
 
@@ -587,4 +587,4 @@ view)来替代ListView.addFooterView(View view)调用,
 
 
 **END. \>\> SEE MORE:**
-[http://erehmi.github.io/](<**http://erehmi.github.io/**>)
+[http://mo0n1andin.github.io/](<**http://mo0n1andin.github.io/**>)

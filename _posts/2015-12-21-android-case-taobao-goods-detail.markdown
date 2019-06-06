@@ -19,7 +19,7 @@ title: Android开发案例 - 淘宝商品详情
 
 -   商品图文详情等其他信息放在下页展示
 
-![](<http://erehmi.github.io/assets/image/taobao-goods-detail.png>)
+![](<http://mo0n1andin.github.io/assets/image/taobao-goods-detail.png>)
 
 **知识要点**
 
@@ -47,4 +47,4 @@ title: Android开发案例 - 淘宝商品详情
 
 
 **END. \>\> SEE MORE:**
-[http://erehmi.github.io/](<**http://erehmi.github.io/**>)
+[http://mo0n1andin.github.io/](<**http://mo0n1andin.github.io/**>)

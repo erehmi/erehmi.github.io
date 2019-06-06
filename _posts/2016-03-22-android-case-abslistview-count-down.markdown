@@ -17,7 +17,7 @@ title: Android开发案例 – 在AbsListView中使用倒计时
 
 2.  在ListView(或者GridView)的ItemView上, 使用倒计时(如图-2)
 
-![](<http://erehmi.github.io/assets/image/count-down.png>)
+![](<http://mo0n1andin.github.io/assets/image/count-down.png>)
 
 相比需求-1, 需求-2的难度更大, 性能要求更高:
 因为AbsListView会涉及到ItemView重用的问题会使得管理定时器很麻烦,
@@ -52,15 +52,15 @@ title: Android开发案例 – 在AbsListView中使用倒计时
 --------
 
 -   github
-    – [erehmi](<https://github.com/erehmi>)**/**[CountDownTask](<https://github.com/erehmi/CountDownTask>) 
+    – [mo0n1andin](<https://github.com/mo0n1andin>)**/**[CountDownTask](<https://github.com/mo0n1andin/CountDownTask>) 
 
 具体用法
 --------
 
-1.  普通页面: [演示代码](<https://github.com/erehmi/CountDownTask/blob/master/samples/src/main/java/io/github/erehmi/samples/SimpleActivity.java>)
+1.  普通页面: [演示代码](<https://github.com/mo0n1andin/CountDownTask/blob/master/samples/src/main/java/io/github/mo0n1andin/samples/SimpleActivity.java>)
 
-2.  列表页面: [演示代码](<https://github.com/erehmi/CountDownTask/blob/master/samples/src/main/java/io/github/erehmi/samples/ListActivity.java>)
+2.  列表页面: [演示代码](<https://github.com/mo0n1andin/CountDownTask/blob/master/samples/src/main/java/io/github/mo0n1andin/samples/ListActivity.java>)
 
 
 **END. \>\> SEE MORE:**
-[http://erehmi.github.io/](<**http://erehmi.github.io/**>)
+[http://mo0n1andin.github.io/](<**http://mo0n1andin.github.io/**>)
